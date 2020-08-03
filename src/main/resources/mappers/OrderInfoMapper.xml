@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fh.order.mapper.OrderInfoMapper">
+<insert id="batchAdd">
+
+    insert into t_order_info (orderId,name,productId,filePath,count,subTotalPrice,price) values
+    <foreach collection="list" item="info" separator=",">
+        (#{info.orderId},#{info.name},#{info.productId},#{info.filePath},#{info.count},#{info.subTotalPrice},#{info.price})
+    </foreach>
+</insert>
+
+
+</mapper>
